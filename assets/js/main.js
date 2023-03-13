@@ -25,7 +25,7 @@ buttonEl.addEventListener('click', function(){
     // Leggo gli elementi dell'array 
     
     for (let i= 0 ; i < listMail.length; i++){
-       /* console.log(listMail[i]);*/
+      
         if (listMail[i] == mail.value){
             access= true;
         }
@@ -36,6 +36,7 @@ buttonEl.addEventListener('click', function(){
     if (access){
         divEl.innerHTML ='Puoi accedere!'
         divEl.style.color='green'
+
     } else{
         divEl.innerHTML =`Mi dispiace, non puoi accedere!`
         divEl.style.color='red'
@@ -47,22 +48,40 @@ buttonEl.addEventListener('click', function(){
 })
 
 
+
 // GIOCO DEI DADI
 //Generare un numero random da 1 a 6, sia per il giocatore sia per il computer. Stabilire il vincitore, in base a chi fa il punteggio più alto.
 
-// Genero un numero random per il giocatore
-const playerNumber = Math.floor(Math.random() * 6) + 1;
+const btnEl = document.getElementById('btn');
+const playerNumber = document.getElementById ('player');
+const pcNumber = document.getElementById ('pc');
+const resultEl = document.getElementById('result')
 
-console.log(playerNumber);
+btnEl.addEventListener('click', function(){
+    // Genero un numero random per il giocatore
+    
+    playerNumber.innerHTML = Math.floor(Math.random() * 6) + 1;
+    
+    // Genero un numero random per il pc
 
-// Genero un numero random per il pc
+    pcNumber.innerHTML = Math.floor(Math.random() * 6) + 1;
+    
+    // Stabilisco il vincitore
+    
+    if (playerNumber.innerHTML > pcNumber.innerHTML){
+        resultEl.innerHTML= 'Hai vinto';
+        resultEl.style.backgroundColor='green'
 
-const pcNumber = Math.floor (Math.random() * 6 ) + 1;
-console.log(pcNumber);
+    } else if (playerNumber.innerHTML == pcNumber.innerHTML){
+        resultEl.innerHTML= 'Hai pareggiato';
+        resultEl.style.backgroundColor='yellow'
 
-// Stabilisco il vincitore
-if (playerNumber > pcNumber){
-    console.log('Hai vinto');
-} else {
-    console.log('Mi dispiace, ha vinto il pc');
-}
+    } else {
+        resultEl.innerHTML= 'Hai perso'
+        resultEl.style.backgroundColor='red'
+   
+    }
+    
+})
+
+

@@ -31,3 +31,24 @@ buttonEl.addEventListener('click', function(){
     buttonEl.insertAdjacentElement ('afterend', divEl);
 
 })
+
+
+// GIOCO DEI DADI
+//Generare un numero random da 1 a 6, sia per il giocatore sia per il computer. Stabilire il vincitore, in base a chi fa il punteggio più alto.
+
+// Genero un numero random per il giocatore
+const playerNumber = Math.floor(Math.random() * 6) + 1;
+
+console.log(playerNumber);
+
+// Genero un numero random per il pc
+
+const pcNumber = Math.floor (Math.random() * 6 ) + 1;
+console.log(pcNumber);
+
+// Stabilisco il vincitore
+if (playerNumber > pcNumber){
+    console.log('Hai vinto');
+} else {
+    console.log('Mi dispiace, ha vinto il pc');
+}

@@ -13,15 +13,27 @@ const listMail = [
 // Seleziono elementi della DOM
 const mail = document.getElementById('mail');
 const buttonEl = document.querySelector('button');
-
+let access = false;
 // Aggiungo un event listener al bottone
 buttonEl.addEventListener('click', function(){
 
     // Inserisco un nuovo elemento che indichi se è consentito l'accesso o meno
     const divEl = document.createElement('div');
 
+    access = false;
+   
+    // Leggo gli elementi dell'array 
+    
+    for (let i= 0 ; i < listMail.length; i++){
+       /* console.log(listMail[i]);*/
+        if (listMail[i] == mail.value){
+            access= true;
+        }
+    }
+
     // Verifico se l'email inserita è presente nell'array
-    if (listMail.includes(mail.value)){
+
+    if (access){
         divEl.innerHTML ='Puoi accedere!'
         divEl.style.color='green'
     } else{

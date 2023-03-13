@@ -22,9 +22,11 @@ buttonEl.addEventListener('click', function(){
 
     // Verifico se l'email inserita è presente nell'array
     if (listMail.includes(mail.value)){
-        divEl.innerHTML ='Puoi accedere'
+        divEl.innerHTML ='Puoi accedere!'
+        divEl.style.color='green'
     } else{
-        divEl.innerHTML =`Mi dispiace, non puoi accedere`
+        divEl.innerHTML =`Mi dispiace, non puoi accedere!`
+        divEl.style.color='red'
     }
 
     // Inserisco risultato in pagina
